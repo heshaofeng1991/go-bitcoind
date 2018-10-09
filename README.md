@@ -1,3 +1,7 @@
+forked from https://github.com/toorop/go-bitcoind
+with below feature updated by Shiming:
+1. better error handling
+
 bitcoind
 ===========
 
