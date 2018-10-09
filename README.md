@@ -1,11 +1,11 @@
+bitcoind
+===========
+A Golang client library wrapping the bitcoind JSON RPC API
+
 forked from https://github.com/toorop/go-bitcoind
 with below feature updated by Shiming:
 1. better error handling
 
-bitcoind
-===========
-
-A Golang client library wrapping the bitcoind JSON RPC API
 
 
 Installation
