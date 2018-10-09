@@ -10,7 +10,7 @@ A Golang client library wrapping the bitcoind JSON RPC API
 
 Installation
 -----
-	$ go get https://github.com/Toorop/go-bitcoind
+	$ go get github.com/huahuayu/go-bitcoind
 
 
 Usage
@@ -19,7 +19,7 @@ Usage
 	package main
 
 	import (
-		"github.com/toorop/go-bitcoind"
+		"github.com/huahuayu/go-bitcoind"
 		"log"
 	)
 
@@ -100,11 +100,3 @@ Todo
 ##### Note on SSL support 
 
 Note on ssl support : bitcoind library doesn't verify the server's certificate chain. That means that it accepts any certificate presented by the server and any host name in that certificate. In this mode, TLS is susceptible to man-in-the-middle attacks.
-
-
-Donation
-------
-
-![Donation QR](http://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bitcoin:1HgpsmxV52eAjDcoNpVGpYEhGfgN7mM1JB%3Flabel%3DToorop)
-
-[1HgpsmxV52eAjDcoNpVGpYEhGfgN7mM1JB](http://tinyurl.com/mccsoez)
