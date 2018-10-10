@@ -1,17 +1,17 @@
 package main
 
 import (
-	"github.com/toorop/go-bitcoind"
+	"github.com/huahuayu/go-bitcoind"
 	"log"
 )
 
 const (
-	SERVER_HOST        = ""
-	SERVER_PORT        = 8334
-	USER               = "bitcoinrpc"
-	PASSWD             = "sss"
+	SERVER_HOST        = "47.75.70.201"
+	SERVER_PORT        = 18332
+	USER               = "rpcuser"
+	PASSWD             = "rpcpass"
 	USESSL             = false
-	WALLET_PASSPHRASE  = "p1"
+	WALLET_PASSPHRASE  = "WalletPassphrase"
 	WALLET_PASSPHRASE2 = "p2"
 )
 
@@ -20,10 +20,15 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
+	// senfrom
+	txID, err := bc.SendFrom("n1ZpFDuoyVqX4HKdaFibz4Nt2ktcmptwKx", "mtHVgsS4rKtMvX7jXhpZmv9ege2Nxqj5eG", 0.0001, 6, "", "")
+	log.Println(err, txID)
+	//transaction, err := bc.GetTransaction("1f90b41736c2de781b658e2447282cb3672a08aebf362f6ad74b92d0f418aa6f")
+	//log.Println(err, transaction)
 
-	//walletpassphrase
-	err = bc.WalletPassphrase(WALLET_PASSPHRASE, 3600)
-	log.Println(err)
+	////walletpassphrase
+	//err = bc.WalletPassphrase(WALLET_PASSPHRASE, 3600)
+	//log.Println(err)
 
 	// backupwallet
 	/*
