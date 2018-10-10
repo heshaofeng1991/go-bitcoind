@@ -20,10 +20,14 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
+	// getrawtransaction
+	rawTransaction, err := bc.GetRawTransaction("d148e683448a59e7ebdbaba9852345ac918244077d88bb4fe95fa2d1b515c6c6", true)
+	log.Printf("%+v\n,%+v\n", err, rawTransaction)
+
 	// senfrom
-	txID, err := bc.SendFrom("n1ZpFDuoyVqX4HKdaFibz4Nt2ktcmptwKx", "mtHVgsS4rKtMvX7jXhpZmv9ege2Nxqj5eG", 0.0001, 6, "", "")
-	log.Println(err, txID)
-	//transaction, err := bc.GetTransaction("1f90b41736c2de781b658e2447282cb3672a08aebf362f6ad74b92d0f418aa6f")
+	//txID, err := bc.SendFrom("n1ZpFDuoyVqX4HKdaFibz4Nt2ktcmptwKx", "mtHVgsS4rKtMvX7jXhpZmv9ege2Nxqj5eG", 0.00011, 6, "", "")
+	//log.Println(err, txID)
+	//transaction, err := bc.GetTransaction("3fceb95d89cc03a32ef78ed240a9e66043c6bc93b101840a53189c83f9945d67")
 	//log.Println(err, transaction)
 
 	////walletpassphrase
