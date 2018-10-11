@@ -452,16 +452,12 @@ func (b *Bitcoind) ListReceivedByAccount(minConf uint32, includeEmpty bool) (lis
 
 // ReceivedByAddress represents how much coin a account have recieved
 type ReceivedByAddress struct {
-	//  receiving address
-	Address string
-	// The corresponding account
-	Account string
-	// total amount received by addresses with this account
-	Amount float64
-	// number of confirmations of the most recent transaction included
-	Confirmations uint32
-	// Tansactions ID
-	TxIds []string
+	Address       string   `json:"address"`
+	Account       string   `json:"account"`
+	Amount        float64  `json:"amount"`
+	Confirmations int      `json:"confirmations"`
+	Label         string   `json:"label"`
+	Txids         []string `json:"txids"`
 }
 
 // ListReceivedByAccount Returns an slice of AccountRecieved:
