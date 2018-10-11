@@ -75,22 +75,47 @@ type TransactionDetails struct {
 
 // Transaction represents a transaction
 type Transaction struct {
-	Amount          float64              `json:"amount"`
-	Account         string               `json:"account,omitempty"`
-	Address         string               `json:"address,omitempty"`
-	Category        string               `json:"category,omitempty"`
-	Fee             float64              `json:"fee,omitempty"`
-	Confirmations   int64                `json:"confirmations"`
-	BlockHash       string               `json:"blockhash"`
-	BlockIndex      int64                `json:"blockindex"`
-	BlockTime       int64                `json:"blocktime"`
-	TxID            string               `json:"txid"`
-	WalletConflicts []string             `json:"walletconflicts"`
-	Time            int64                `json:"time"`
-	TimeReceived    int64                `json:"timereceived"`
-	Details         []TransactionDetails `json:"details,omitempty"`
-	Hex             string               `json:"hex,omitempty"`
+	Amount            float64       `json:"amount"`
+	Fee               float64       `json:"fee"`
+	Confirmations     int64         `json:"confirmations"`
+	Blockhash         string        `json:"blockhash"`
+	Blockindex        int64         `json:"blockindex"`
+	Blocktime         int64         `json:"blocktime"`
+	Txid              string        `json:"txid"`
+	Walletconflicts   []interface{} `json:"walletconflicts"`
+	Time              int64         `json:"time"`
+	Timereceived      int64         `json:"timereceived"`
+	Bip125Replaceable string        `json:"bip125-replaceable"`
+	Details           []struct {
+		Account   string  `json:"account"`
+		Address   string  `json:"address"`
+		Category  string  `json:"category"`
+		Amount    float64 `json:"amount"`
+		Label     string  `json:"label"`
+		Vout      int64   `json:"vout"`
+		Fee       float64 `json:"fee,omitempty"`
+		Abandoned bool    `json:"abandoned,omitempty"`
+	} `json:"details"`
+	Hex string `json:"hex"`
 }
+
+//type Transaction struct {
+//	Amount          float64              `json:"amount"`
+//	Account         string               `json:"account,omitempty"`
+//	Address         string               `json:"address,omitempty"`
+//	Category        string               `json:"category,omitempty"`
+//	Fee             float64              `json:"fee,omitempty"`
+//	Confirmations   int64                `json:"confirmations"`
+//	BlockHash       string               `json:"blockhash"`
+//	BlockIndex      int64                `json:"blockindex"`
+//	BlockTime       int64                `json:"blocktime"`
+//	TxID            string               `json:"txid"`
+//	WalletConflicts []string             `json:"walletconflicts"`
+//	Time            int64                `json:"time"`
+//	TimeReceived    int64                `json:"timereceived"`
+//	Details         []TransactionDetails `json:"details,omitempty"`
+//	Hex             string               `json:"hex,omitempty"`
+//}
 
 // UTransactionOut represents a unspent transaction out (UTXO)
 type UTransactionOut struct {
