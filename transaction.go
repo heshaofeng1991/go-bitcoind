@@ -99,6 +99,34 @@ type Transaction struct {
 	Hex string `json:"hex"`
 }
 
+// omni transaction
+
+type OmniTransaction struct {
+	Txid             string `json:"txid"`
+	Fee              string `json:"fee"`
+	Sendingaddress   string `json:"sendingaddress"`   // from address
+	Referenceaddress string `json:"referenceaddress"` // to address
+	Ismine           bool   `json:"ismine"`
+	Version          int    `json:"version"`
+	TypeInt          int    `json:"type_int"`
+	Type             string `json:"type"`
+	Propertyid       int    `json:"propertyid"`
+	Divisible        bool   `json:"divisible"`
+	Amount           string `json:"amount"`
+	Valid            bool   `json:"valid"` // whether the transaction is valid
+	Blockhash        string `json:"blockhash"`
+	Blocktime        int    `json:"blocktime"`
+	Positioninblock  int    `json:"positioninblock"`
+	Block            int    `json:"block"`
+	Confirmations    int    `json:"confirmations"`
+}
+
+type OmniBalance struct {
+	Balance  string `json:"balance"`
+	Reserved string `json:"reserved"`
+	Frozen   string `json:"frozen"`
+}
+
 //type Transaction struct {
 //	Amount          float64              `json:"amount"`
 //	Account         string               `json:"account,omitempty"`

@@ -330,6 +330,36 @@ func (b *Bitcoind) GetTransaction(txid string) (transaction Transaction, err err
 	return
 }
 
+// OmniListtransactions
+func (b *Bitcoind) OmniListtransactions(txid string, count int, skip int, startblock int, endblock int) (omniTransaction []OmniTransaction, err error) {
+	r, err := b.client.call("omni_listtransactions", []interface{}{txid, count, skip, startblock, endblock})
+	if err = handleError(err, &r); err != nil {
+		return
+	}
+	err = json.Unmarshal(r.Result, &omniTransaction)
+	return
+}
+
+//OmniGetBalance
+func (b *Bitcoind) OmniGetBalance(address string, propertyid int) (omniBalance OmniBalance, err error) {
+	r, err := b.client.call("omni_getbalance", []interface{}{address, propertyid})
+	if err = handleError(err, &r); err != nil {
+		return
+	}
+	err = json.Unmarshal(r.Result, &omniBalance)
+	return
+}
+
+//OmniSend
+func (b *Bitcoind) OmniSend(fromaddress string, toaddress string, propertyid int, amount string, redeemaddress string, referenceamount string) (txnhash string, err error) {
+	r, err := b.client.call("omni_send", []interface{}{fromaddress, toaddress, propertyid, amount, redeemaddress})
+	if err = handleError(err, &r); err != nil {
+		return
+	}
+	err = json.Unmarshal(r.Result, &txnhash)
+	return
+}
+
 // GetTxOut returns details about an unspent transaction output (UTXO)
 func (b *Bitcoind) GetTxOut(txid string, n uint32, includeMempool bool) (transactionOut UTransactionOut, err error) {
 	r, err := b.client.call("gettxout", []interface{}{txid, n, includeMempool})
