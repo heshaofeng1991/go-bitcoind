@@ -360,6 +360,16 @@ func (b *Bitcoind) OmniSend(fromaddress string, toaddress string, propertyid int
 	return
 }
 
+//omni_gettransaction
+func (b *Bitcoind) OmniGetTransaction(txnid string) (omniTransaction OmniGetTransaction, err error) {
+	r, err := b.client.call("omni_gettransaction", []interface{}{txnid})
+	if err = handleError(err, &r); err != nil {
+		return
+	}
+	err = json.Unmarshal(r.Result, &omniTransaction)
+	return
+}
+
 // GetTxOut returns details about an unspent transaction output (UTXO)
 func (b *Bitcoind) GetTxOut(txid string, n uint32, includeMempool bool) (transactionOut UTransactionOut, err error) {
 	r, err := b.client.call("gettxout", []interface{}{txid, n, includeMempool})

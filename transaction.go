@@ -127,6 +127,21 @@ type OmniBalance struct {
 	Frozen   string `json:"frozen"`
 }
 
+type OmniGetTransaction struct {
+	Txid             string `json:"txid"`
+	Fee              string `json:"fee"`
+	Sendingaddress   string `json:"sendingaddress"`
+	Referenceaddress string `json:"referenceaddress"`
+	Ismine           bool   `json:"ismine"`
+	Version          int    `json:"version"`
+	TypeInt          int    `json:"type_int"`
+	Type             string `json:"type"`
+	Propertyid       int    `json:"propertyid"`
+	Divisible        bool   `json:"divisible"`
+	Amount           string `json:"amount"`
+	Confirmations    int    `json:"confirmations"`
+}
+
 //type Transaction struct {
 //	Amount          float64              `json:"amount"`
 //	Account         string               `json:"account,omitempty"`
